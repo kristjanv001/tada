@@ -1,6 +1,8 @@
-html {
+html,
+body {
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -11,7 +13,8 @@ body {
 }
 
 #main-container {
-  /* min-height: 100vh; */
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,67 +23,78 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 500px;
+  min-height: 100vh;
+  width: 100%;
   background-color: whitesmoke;
 }
 
 #todo-header {
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #f7ce68;
   width: 100%;
   height: 7em;
-  flex-shrink: 0;
 }
 
 #todo-list {
-  padding: 30px;
   width: 100%;
-  flex-grow: 1;
   background-color: whitesmoke;
+  flex: 1 0 auto;
+}
+
+#todo-list ul {
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 #todo-list ul li {
+  padding: 5px 0;
   font-size: 1.3em;
-  padding: 5px;
-  color: rgb(36, 36, 36);
-}
-
-#todo-add-container {
-  height: 5em;
-  width: 100%;
-  background-color: cadetblue;
-  flex-shrink: 1;
+  color: rgb(48, 48, 48);
 }
 
 .date {
   font-weight: 700;
-  font-size: 3em;
-  margin-left: 30px;
+  font-size: 2em;
   color: whitesmoke;
 }
 
+#todo-add-container {
+  flex-shrink: 0;
+  padding: 30px;
+}
+
 #todo-add-wrapper {
-  padding: 0 30px;
-  height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 
 #todo-input {
+  background-color: whitesmoke;
+  outline: none;
+  border: none;
   flex-grow: 1;
+  height: 48px;
+  border-bottom: 1px solid black;
+  font-size: 23px;
+}
+
+#todo-btn {
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+  border: none;
+  font-size: 33px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 
 @media (min-width: 450px) {
   #app {
+    /* height: 90vh;
     overflow: hidden;
-    border-radius: 20px;
-    margin-top: 40px;
-    height: 90vh;
-    -webkit-box-shadow: 10px 10px 0px -2px rgba(0, 0, 0, 0.08);
-    -moz-box-shadow: 10px 10px 0px -2px rgba(0, 0, 0, 0.08);
-    box-shadow: 10px 10px 0px -2px rgba(0, 0, 0, 0.08);
+    margin: 40px 0 40px 0; */
+    width: 500px;
   }
 }
