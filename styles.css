@@ -43,6 +43,12 @@ body {
   height: 7em;
 }
 
+.date {
+  font-weight: 600;
+  font-size: 2.4em;
+  color: whitesmoke;
+}
+
 #todo-list {
   width: 100%;
   background-color: whitesmoke;
@@ -57,9 +63,10 @@ body {
 
 #todo-list ul li {
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   padding: 5px 0;
   font-size: 1.6em;
+  color: #1f1f1f;
 }
 
 #todo-list ul li a {
@@ -70,12 +77,6 @@ body {
 
 #todo-list ul li label {
   flex-grow: 1;
-}
-
-.date {
-  font-weight: 700;
-  font-size: 2em;
-  color: whitesmoke;
 }
 
 #todo-add-container {
@@ -109,10 +110,14 @@ body {
 }
 
 @media (min-width: 450px) {
+  #todo-header {
+    border-radius: 30px 30px 0 0;
+  }
   #app {
-    /* height: 90vh;
-    overflow: hidden;
-    margin: 40px 0 40px 0; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px 30px 30px 30px;
+    margin: 30px 0 30px 0;
+    min-height: 90vh;
     width: 500px;
   }
 }
