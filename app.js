@@ -4,7 +4,11 @@ const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
 const dateHeader = document.getElementById("date");
 
-let todos = getTodosFromLocalStorage();
+let todos = [];
+
+if (getTodosFromLocalStorage().length) {
+  todos = getTodosFromLocalStorage();
+}
 
 function getDateAndDisplayIt() {
   const MONTHS = [
