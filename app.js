@@ -69,7 +69,7 @@ function renderTodos() {
       todo.todoText
     }</span>
       </label>
-      <a class="deleteBtn">🞨</a>
+      <a class="deleteBtn">&#10005;</a>
     </li>`;
     todoListUl.insertAdjacentHTML("afterbegin", todoItem);
   });
