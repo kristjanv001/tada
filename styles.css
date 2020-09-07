@@ -56,7 +56,7 @@ body {
 }
 
 #todo-list ul {
-  padding: 50px;
+  /* padding: 50px; */
 }
 
 #todo-list ul li {
@@ -87,7 +87,7 @@ body {
 
 #todo-add-container {
   flex-shrink: 0;
-  padding: 50px;
+  /* padding: 50px; */
 }
 
 #todo-add-wrapper {
