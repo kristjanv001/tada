@@ -4,8 +4,6 @@ const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
 const dateHeader = document.getElementById("date");
 
-// window.localStorage.clear();
-console.log(window.localStorage.getItem("todos"));
 let todos = [];
 
 function getDateAndDisplayIt() {
@@ -31,23 +29,17 @@ function getDateAndDisplayIt() {
   } ${date.getDate()}, ${date.getFullYear()}`;
 }
 
-// JSON.parse(window.localStorage.getItem("todos"));
-// window.localStorage.setItem("todos", JSON.stringify(todos));
-
 function setTodosToLocalStorage() {
+  window.localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function checkIfThereAreTodosInTheLocalStorageAndPullThemInIfThereAre() {
   if (window.localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(window.localStorage.getItem("todos"));
-    console.log("todos from ls --> todos");
   }
-  // window.localStorage.setItem("todos", JSON.stringify(todos));
 }
-
-// function addToLocalStorage(todos) {
-//     localStorage.setItem('todos', JSON.stringify(todos));
-//     renderTodos(todos);
-//   }
 
 function addTodos(e) {
   e.preventDefault();
@@ -58,7 +50,7 @@ function addTodos(e) {
       done: false,
     });
   }
-  window.localStorage.setItem("todos", JSON.stringify(todos));
+  setTodosToLocalStorage();
   todoInput.value = "";
   renderTodos();
 }
@@ -66,7 +58,7 @@ function addTodos(e) {
 function renderTodos() {
   todoListUl.innerHTML = "";
 
-  setTodosToLocalStorage();
+  checkIfThereAreTodosInTheLocalStorageAndPullThemInIfThereAre();
 
   todos.map((todo) => {
     const todoItem = `
@@ -85,10 +77,9 @@ function renderTodos() {
 
 function deleteTodo(id) {
   todos = todos.filter((todo) => {
-    console.log(todo.id, id);
     return todo.id != id;
   });
-  window.localStorage.setItem("todos", JSON.stringify(todos));
+  setTodosToLocalStorage();
   renderTodos();
 }
 
@@ -98,7 +89,7 @@ function toggleTodoDone(id) {
       todo.done = !todo.done;
     }
   });
-  window.localStorage.setItem("todos", JSON.stringify(todos));
+  setTodosToLocalStorage();
   renderTodos();
 }
 
