@@ -53,6 +53,13 @@ function setTodosToLocalStorage(todos) {
   window.localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+function decideOnRender() {
+  if (getTodosFromLocalStorage().length) {
+    todos = getTodosFromLocalStorage();
+    renderTodos();
+  }
+}
+
 function renderTodos() {
   todoListUl.innerHTML = "";
 
@@ -103,10 +110,6 @@ function loadEventListeners() {
   todoListUl.addEventListener("click", checkOrDelete);
 }
 
-// if (getTodosFromLocalStorage().length) {
-//   todos = getTodosFromLocalStorage();
-// }
-
-renderTodos();
+decideOnRender();
 loadEventListeners();
 getDateAndDisplayIt();
