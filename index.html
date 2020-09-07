@@ -3,29 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
     <title>TODO APP</title>
   </head>
+
   <body>
-    <div id="main-container">
-      <div id="app">
-        <div id="todo-header">
-          <h1 id="date" class="date"></h1>
+    <div id="main-wrapper">
+      <header>
+        <div id="date-wrapper">
+          <p id="date">Today's date</p>
         </div>
-        <div id="todo-list">
-          <ul id="todo-list-ul"></ul>
-        </div>
-        <div id="todo-add-container">
-          <form id="todo-add-wrapper">
-            <input placeholder="Add a todo" id="todo-input" />
-            <button type="submit" id="todo-btn">+</button>
-          </form>
-        </div>
+      </header>
+      <main id="main-content">
+        <ul id="todo-list"></ul>
+      </main>
+      <div id="todo-add">
+        <form id="todo-form">
+          <input id="todo-input" placeholder="Add a todo" />
+          <button id="todo-btn" type="submit">+</button>
+        </form>
       </div>
     </div>
   </body>

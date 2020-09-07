@@ -1,8 +1,8 @@
-const todoListUl = document.getElementById("todo-list-ul");
-const todoAddForm = document.getElementById("todo-add-wrapper");
+const todoList = document.getElementById("todo-list");
+const todoForm = document.getElementById("todo-form");
 const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
-const dateHeader = document.getElementById("date");
+const date = document.getElementById("date");
 
 let todos = [];
 
@@ -24,7 +24,7 @@ function getDateAndDisplayIt() {
 
   const date = new Date();
 
-  dateHeader.innerText = `${
+  date.innerText = `${
     MONTHS[date.getMonth()]
   } ${date.getDate()}, ${date.getFullYear()}`;
 }
@@ -56,7 +56,7 @@ function addTodos(e) {
 }
 
 function renderTodos() {
-  todoListUl.innerHTML = "";
+  todoList.innerHTML = "";
 
   checkIfThereAreTodosInTheLocalStorageAndPullThemInIfThereAre();
 
@@ -71,7 +71,7 @@ function renderTodos() {
       </label>
       <a class="deleteBtn">&#10005;</a>
     </li>`;
-    todoListUl.insertAdjacentHTML("afterbegin", todoItem);
+    todoList.insertAdjacentHTML("afterbegin", todoItem);
   });
 }
 
@@ -103,8 +103,8 @@ function checkOrDelete(e) {
 }
 
 function loadEventListeners() {
-  todoAddForm.addEventListener("submit", addTodos);
-  todoListUl.addEventListener("click", checkOrDelete);
+  todoForm.addEventListener("submit", addTodos);
+  todoList.addEventListener("click", checkOrDelete);
 }
 
 renderTodos();
