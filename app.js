@@ -1,14 +1,10 @@
 const todoListUl = document.getElementById("todo-list-ul");
-const todoAddWrapper = document.getElementById("todo-add-wrapper");
+const todoAddForm = document.getElementById("todo-add-wrapper");
 const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
 const dateHeader = document.getElementById("date");
 
-const todos = [];
-
-let newTodoText = "";
-
-console.log(dateHeader.innerText);
+let todos = [];
 
 function getDateAndDisplayIt() {
   const MONTHS = [
@@ -33,48 +29,72 @@ function getDateAndDisplayIt() {
   } ${date.getDate()}, ${date.getFullYear()}`;
 }
 
-function addTodoToDOM(e) {
+function addTodos(e) {
   e.preventDefault();
-  const todoItem = `<li>
-    <label class="checkbox-container">
-      <input type="checkbox" />
-      <span >${e.target[0].value}</span>
-    </label>
-    <a class="deleteBtn">🞨</a>
-    </li>`;
+
   if (todoInput.value) {
-    todoListUl.insertAdjacentHTML("afterbegin", todoItem);
-    todoInput.value = "";
+    todos.push({
+      id: Date.now(),
+      todoText: todoInput.value,
+      done: false,
+    });
   }
+  renderTodos();
+}
+
+function renderTodos() {
+  todoListUl.innerHTML = "";
+
+  todos.map((todo) => {
+    const todoItem = `
+    <li key="${todo.id}">
+      <label >
+        <input ${todo.done ? "checked" : null} type="checkbox" />
+        <span ${todo.done ? 'class="todo-done"' : 'class="todo-undone"'}>${
+      todo.todoText
+    }</span>
+      </label>
+      <a class="deleteBtn">🞨</a>
+    </li>`;
+    todoListUl.insertAdjacentHTML("afterbegin", todoItem);
+  });
+  console.log(todos);
+}
+
+function deleteTodo(id) {
+  todos = todos.filter((item) => {
+    return item.id != id;
+  });
+  renderTodos();
+}
+
+function toggleTodoDone(id) {
+  todos.forEach((todo) => {
+    if (todo.id == id) {
+      todo.done = !todo.done;
+    }
+    renderTodos();
+  });
 }
 
 function checkOrDelete(e) {
-  if (e.target.className === "deleteBtn")
-    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-
-  if (e.target.type === "checkbox" && e.target.checked) {
-    e.target.nextSibling.nextSibling.style.textDecoration = "line-through";
-    e.target.nextSibling.nextSibling.style.color = "gray";
+  if (e.target.className === "deleteBtn") {
+    deleteTodo(e.target.parentElement.getAttribute("key"));
   }
-
-  if (e.target.type === "checkbox" && !e.target.checked) {
-    e.target.nextSibling.nextSibling.style.textDecoration = "none";
-    e.target.nextSibling.nextSibling.style.color = "";
+  if (e.target.type === "checkbox") {
+    toggleTodoDone(e.target.parentElement.parentElement.getAttribute("key"));
   }
 }
 
 function loadEventListeners() {
-  todoAddWrapper.addEventListener("submit", addTodoToDOM);
+  todoAddForm.addEventListener("submit", addTodos);
   todoListUl.addEventListener("click", checkOrDelete);
 }
 
 loadEventListeners();
 getDateAndDisplayIt();
 
-// function addTodo(text) {
-//   todos.push({
-//     id: Date.now(),
-//     todoText: text,
-//     done: false,
-//   });
-// }
+// ls
+// window.localStorage.setItem("todos", JSON.stringify(todos));
+// console.log(JSON.parse(window.localStorage.getItem("todos")));
+// window.localStorage.clear();

@@ -44,8 +44,9 @@ body {
 }
 
 .date {
+  font-family: serif;
   font-weight: 600;
-  font-size: 2.4em;
+  font-size: 2.5em;
   color: whitesmoke;
 }
 
@@ -66,17 +67,25 @@ body {
   align-items: center;
   padding: 5px 0;
   font-size: 1.6em;
-  color: #1f1f1f;
+  border-bottom: 1px dashed #ccc;
 }
 
 #todo-list ul li a {
   color: #f7ce68;
   font-weight: bold;
+  font-size: 1.2em;
+  transition-property: color;
+  transition-duration: 0.4s;
+}
+
+#todo-list ul li a:hover {
+  color: #f76868;
   cursor: pointer;
 }
 
 #todo-list ul li label {
   flex-grow: 1;
+  cursor: pointer;
 }
 
 #todo-add-container {
@@ -96,6 +105,7 @@ body {
   height: 48px;
   border-bottom: 1px solid black;
   font-size: 23px;
+  color: rgb(48, 48, 48);
 }
 
 #todo-btn {
@@ -120,4 +130,13 @@ body {
     min-height: 90vh;
     width: 500px;
   }
+}
+
+.todo-done {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.todo-undone {
+  color: rgb(48, 48, 48);
 }
