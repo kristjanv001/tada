@@ -6,10 +6,6 @@ const dateHeader = document.getElementById("date");
 
 let todos = [];
 
-if (getTodosFromLocalStorage().length) {
-  todos = getTodosFromLocalStorage();
-}
-
 function getDateAndDisplayIt() {
   const MONTHS = [
     "January",
@@ -105,6 +101,10 @@ function checkOrDelete(e) {
 function loadEventListeners() {
   todoAddForm.addEventListener("submit", addTodos);
   todoListUl.addEventListener("click", checkOrDelete);
+}
+
+if (getTodosFromLocalStorage().length) {
+  todos = getTodosFromLocalStorage();
 }
 
 renderTodos();
