@@ -103,9 +103,9 @@ function loadEventListeners() {
   todoListUl.addEventListener("click", checkOrDelete);
 }
 
-if (getTodosFromLocalStorage().length) {
-  todos = getTodosFromLocalStorage();
-}
+// if (getTodosFromLocalStorage().length) {
+//   todos = getTodosFromLocalStorage();
+// }
 
 renderTodos();
 loadEventListeners();
