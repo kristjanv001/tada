@@ -4,6 +4,8 @@ const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
 const dateHeader = document.getElementById("date");
 
+// window.localStorage.clear();
+console.log(window.localStorage.getItem("todos"));
 let todos = [];
 
 function getDateAndDisplayIt() {
@@ -29,6 +31,24 @@ function getDateAndDisplayIt() {
   } ${date.getDate()}, ${date.getFullYear()}`;
 }
 
+// JSON.parse(window.localStorage.getItem("todos"));
+// window.localStorage.setItem("todos", JSON.stringify(todos));
+
+function setTodosToLocalStorage() {
+  if (window.localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(window.localStorage.getItem("todos"));
+    console.log("todos from ls --> todos");
+  }
+  // window.localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// function addToLocalStorage(todos) {
+//     localStorage.setItem('todos', JSON.stringify(todos));
+//     renderTodos(todos);
+//   }
+
 function addTodos(e) {
   e.preventDefault();
   if (todoInput.value) {
@@ -38,30 +58,15 @@ function addTodos(e) {
       done: false,
     });
   }
-
-  setTodosToLocalStorage(todos);
-
+  window.localStorage.setItem("todos", JSON.stringify(todos));
   todoInput.value = "";
   renderTodos();
 }
 
-function getTodosFromLocalStorage() {
-  return JSON.parse(window.localStorage.getItem("todos"));
-}
-
-function setTodosToLocalStorage(todos) {
-  window.localStorage.setItem("todos", JSON.stringify(todos));
-}
-
-function decideOnRender() {
-  if (getTodosFromLocalStorage().length) {
-    todos = getTodosFromLocalStorage();
-    renderTodos();
-  }
-}
-
 function renderTodos() {
   todoListUl.innerHTML = "";
+
+  setTodosToLocalStorage();
 
   todos.map((todo) => {
     const todoItem = `
@@ -79,10 +84,11 @@ function renderTodos() {
 }
 
 function deleteTodo(id) {
-  todos = todos.filter((item) => {
-    return item.id != id;
+  todos = todos.filter((todo) => {
+    console.log(todo.id, id);
+    return todo.id != id;
   });
-  setTodosToLocalStorage(todos);
+  window.localStorage.setItem("todos", JSON.stringify(todos));
   renderTodos();
 }
 
@@ -90,10 +96,10 @@ function toggleTodoDone(id) {
   todos.forEach((todo) => {
     if (todo.id == id) {
       todo.done = !todo.done;
-      setTodosToLocalStorage(todos);
     }
-    renderTodos();
   });
+  window.localStorage.setItem("todos", JSON.stringify(todos));
+  renderTodos();
 }
 
 function checkOrDelete(e) {
@@ -110,6 +116,6 @@ function loadEventListeners() {
   todoListUl.addEventListener("click", checkOrDelete);
 }
 
-decideOnRender();
+renderTodos();
 loadEventListeners();
 getDateAndDisplayIt();
