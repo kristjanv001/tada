@@ -66,6 +66,10 @@ header {
   flex-grow: 1;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
 #todo-list li label span {
   cursor: pointer;
 }
