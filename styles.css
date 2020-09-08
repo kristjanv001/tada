@@ -41,7 +41,7 @@ header {
 #date-month {
   padding: 0 0 0 2.5rem;
   font-size: 1.1em;
-  color: #515070;
+  color: #92a5e5;
 }
 
 #main-content {
@@ -66,9 +66,13 @@ header {
   flex-grow: 1;
 }
 
+#todo-list li label span {
+  cursor: pointer;
+}
+
 #todo-list li a {
-  color: #ffbb91;
-  font-size: 1.2em;
+  color: #ffbb917e;
+  font-size: 1.1em;
   transition-property: color;
   transition-duration: 0.4s;
 }
@@ -116,6 +120,10 @@ header {
   color: #ccc;
 }
 
+.todo-undone {
+  color: rgb(59, 59, 59);
+}
+
 @media (min-width: 600px) {
   body {
     display: flex;
@@ -126,6 +134,10 @@ header {
     background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
   }
   #main-wrapper {
+    border-radius: 2em;
+    max-height: 90vh;
     width: 450px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
