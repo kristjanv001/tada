@@ -2,7 +2,8 @@ const todoList = document.getElementById("todo-list");
 const todoForm = document.getElementById("todo-form");
 const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
-const date = document.getElementById("date");
+const dateDay = document.getElementById("date-day");
+const dateMonth = document.getElementById("date-month");
 
 let todos = [];
 
@@ -22,9 +23,23 @@ function getDateAndDisplayIt() {
     "December",
   ];
 
+  const DAYS = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  // August 23, 2020; 23 August 2020
+
   const date = new Date();
 
-  date.innerText = `${
+  dateDay.innerHTML = `${DAYS[date.getDay()]}`;
+
+  dateMonth.innerText = `${
     MONTHS[date.getMonth()]
   } ${date.getDate()}, ${date.getFullYear()}`;
 }
