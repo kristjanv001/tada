@@ -6,7 +6,6 @@ html {
 
 body {
   min-height: 100vh;
-  /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
 }
 
@@ -17,7 +16,6 @@ html {
 #main-wrapper {
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; */
   height: 100%;
 }
 
@@ -79,6 +77,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* dangerous territory */
+  padding: 0 2.5em;
 }
 
 #todo-form {
