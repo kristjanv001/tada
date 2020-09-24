@@ -33,8 +33,6 @@ function getDateAndDisplayIt() {
     "Saturday",
   ];
 
-  // August 23, 2020; 23 August 2020
-
   const date = new Date();
 
   dateDay.innerHTML = `${DAYS[date.getDay()]}`;
