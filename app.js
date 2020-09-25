@@ -108,6 +108,8 @@ function toggleTodoDone(id) {
 
 function checkOrDelete(e) {
   if (e.target.className === "deleteBtn") {
+    console.log(e.target);
+    console.log(e.target.parentElement);
     deleteTodo(e.target.parentElement.getAttribute("key"));
   }
   if (e.target.type === "checkbox") {
