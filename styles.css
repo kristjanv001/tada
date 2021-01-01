@@ -94,6 +94,8 @@ input[type="checkbox"] {
   justify-content: center;
   /* be careful with p on mobile */
   padding: 0 2.5em;
+  position: sticky;
+  bottom: 0;
 }
 
 #todo-form {
