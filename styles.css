@@ -47,12 +47,11 @@ header {
 
 #main-content {
   /* flex: 1 0 auto; */
-  flex-grow: 1;
+  flex: 1 1 auto;
   display: flex;
   /* align-items: flex-start; */
   background-color: white;
   position: relative;
-  min-height: 100%;
 }
 
 #todo-list {
