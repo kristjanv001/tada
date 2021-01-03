@@ -1,22 +1,17 @@
 body,
 html {
   font-family: "Roboto", sans-serif;
-  height: 100%;
-}
-
-body {
-  /* min-height: 100vh; */
+  /* height: 100%; */
   min-height: -webkit-fill-available;
-}
-
-html {
   height: -webkit-fill-available;
+  min-height: 100vh;
 }
 
 #main-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  /* min-height:90vw */
 }
 
 header {
