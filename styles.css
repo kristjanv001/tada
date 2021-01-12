@@ -6,14 +6,15 @@
 }
 
 body {
-  max-height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background: #19456b;
   color: #16c79a;
-}
-
-.wrapper {
   overflow: hidden;
 }
+
+/* .wrapper {
+} */
 
 .container {
   max-width: 80vw;
