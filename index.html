@@ -7,8 +7,12 @@
     <title>TADA</title>
 
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
@@ -21,22 +25,30 @@
   </head>
 
   <body>
-    <div id="main-wrapper">
+    <div class="wrapper">
       <header>
-        <div id="date-wrapper">
-          <p id="date-day"></p>
-          <p id="date-month"></p>
+        <div class="container header-container">
+          <p id="date-day">Monday</p>
+          <p id="date-full">12 January 2021</p>
         </div>
       </header>
-      <main id="main-content">
-        <ul id="todo-list"></ul>
+
+      <main>
+        <div class="container">
+          <ul id="todo-list">
+            <li>todo</li>
+            <li>todo</li>
+            <li>todo</li>
+          </ul>
+        </div>
       </main>
-      <div id="todo-add">
-        <form id="todo-form">
+
+      <footer>
+        <form id="todo-form" class="container">
           <input id="todo-input" placeholder="Add a todo" />
-          <button id="todo-btn" type="submit">+</button>
+          <button>+</button>
         </form>
-      </div>
+      </footer>
     </div>
   </body>
   <script src="/app.js"></script>

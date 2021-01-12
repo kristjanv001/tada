@@ -3,7 +3,7 @@ const todoForm = document.getElementById("todo-form");
 const todoBtn = document.getElementById("todo-btn");
 const todoInput = document.getElementById("todo-input");
 const dateDay = document.getElementById("date-day");
-const dateMonth = document.getElementById("date-month");
+const dateFull = document.getElementById("date-full");
 
 let todos = [];
 
@@ -37,7 +37,7 @@ function getDateAndDisplayIt() {
 
   dateDay.innerHTML = `${DAYS[date.getDay()]}`;
 
-  dateMonth.innerText = `${
+  dateFull.innerText = `${
     MONTHS[date.getMonth()]
   } ${date.getDate()}, ${date.getFullYear()}`;
 }
