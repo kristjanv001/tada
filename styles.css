@@ -6,9 +6,10 @@
 }
 
 body {
-  min-height: 100vh;
+  max-height: 100vh;
   background: #19456b;
   color: #16c79a;
+  overflow: hidden;
 }
 
 .container {
@@ -48,8 +49,13 @@ main {
   justify-content: center; */
 }
 
+.main-container {
+  overflow: auto;
+}
+
 ul {
   list-style: none;
+  max-height: 50vh;
 }
 
 ul li {
